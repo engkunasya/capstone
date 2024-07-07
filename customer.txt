@@ -1,0 +1,70 @@
+Name: Brian Hart
+Email: lindsey11@example.com
+Phone: 366-545-2966
+Hotel Index: 6
+Chose Tour Guide: False
+Tour Guide Index: None
+
+Name: Garrett Stewart
+Email: jason29@example.org
+Phone: 476-994-2105
+Hotel Index: 5
+Chose Tour Guide: False
+Tour Guide Index: None
+
+Name: Lisa Werner
+Email: courtney17@example.org
+Phone: +1-695-200-8850x71194
+Hotel Index: 0
+Chose Tour Guide: True
+Tour Guide Index: 2
+
+Name: Robert Alexander
+Email: joseph92@example.net
+Phone: (679)427-7733
+Hotel Index: 5
+Chose Tour Guide: False
+Tour Guide Index: None
+
+Name: Alexander Walker
+Email: david91@example.com
+Phone: +1-540-625-3403
+Hotel Index: 4
+Chose Tour Guide: True
+Tour Guide Index: 1
+
+Name: Catherine Kennedy
+Email: james06@example.org
+Phone: +1-314-692-7782x8101
+Hotel Index: 0
+Chose Tour Guide: True
+Tour Guide Index: 5
+
+Name: James Mendez
+Email: greenemily@example.com
+Phone: +1-845-759-7027x2524
+Hotel Index: 6
+Chose Tour Guide: False
+Tour Guide Index: None
+
+Name: Jennifer Parker
+Email: aduarte@example.org
+Phone: +1-777-575-3470x270
+Hotel Index: 8
+Chose Tour Guide: False
+Tour Guide Index: None
+
+Name: Lindsey Martinez
+Email: umartinez@example.org
+Phone: (544)456-3129x765
+Hotel Index: 7
+Chose Tour Guide: True
+Tour Guide Index: 8
+
+Name: Robert Juarez
+Email: brooksmatthew@example.com
+Phone: 887-583-5739
+Hotel Index: 3
+Chose Tour Guide: False
+Tour Guide Index: None
+

@@ -1,6 +1,8 @@
 import os
 
-def create_file(filename):
+
+#===== FOR HOTEL =====
+def create_file(filename): 
     if not os.path.exists(filename):
         try:
             with open(filename, "x") as file:
