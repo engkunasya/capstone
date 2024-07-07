@@ -1,0 +1,42 @@
+class Service:
+    def keyboardInput(datatype, caption, errorMessage, defaultValue = None):
+    def doMenu(filename):
+    def createFile(filename):
+    def createHeader(filename):
+    def addService(filename):
+	serviceID = 	#auto generate
+	category =
+	name =
+	commissionperday = 
+	priceperday =
+    def printService(filename):
+    def editService(filename):
+    def deleteSrevice(filename):
+    filename = service.txt
+
+-------------------------------------------------------------------------------------
+
+class BookService:
+    def keyboardInput(datatype, caption, errorMessage, defaultValue = None):
+    def doMenu(filename):
+    def createFile(filename):
+    def createHeader(filename):
+    def addBookingService(filename):
+	serviceID = 	#from service.txt
+	bookingID = 	#from booking.txt
+	category =
+	name =
+	commissionperday = 
+	priceperday =
+	totalcomission = 	# (end_date - start_date) * (price * commission)
+    def printBookingService(filename):
+    def editBookingService(filename):
+    def deleteBookingSrevice(filename):
+
+    filename = BookingService.txt
+
+-----------------------------------------------------------------------------------------
+
+class Report:
+	def CalculateTotalCommission():
+	def printComission():
