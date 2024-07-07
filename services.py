@@ -1,26 +1,27 @@
 import os
+from datetime import datetime
 
 
 #===== FOR HOTEL =====
-def create_file_hotel(filename_hotel):
-    if not os.path.exists(filename_hotel):
-        try:
-            with open(filename_hotel, "x") as file:
-                file.write("hotel | hotel_id | hotel_Price | Total Commission\n")
-        except IOError as e:
-            print(f"Error creating file: {e}")
-    else:
-        print(f"File '{filename_hotel}' already exists.")
+# def create_file_hotel(filename_hotel):
+#     if not os.path.exists(filename_hotel):
+#         try:
+#             with open(filename_hotel, "x") as file:
+#                 file.write("hotel | hotel_id | hotel_Price | Net Commission\n")
+#         except IOError as e:
+#             print(f"Error creating file: {e}")
+#     else:
+#         print(f"File '{filename_hotel}' already exists.")
 
 def add_hotel(filename_hotel):
     if os.path.exists(filename_hotel):
         try:
             with open(filename_hotel, "a") as file:
+                hotel_id = datetime.now().strftime("%Y%m%d%H%M%S%f") #generate time-based-id
                 hotel = input("Enter the hotel name: ")
-                hotel_id = input("Enter the hotel id: ")
                 hotel_price = input("Enter the hotel_price/night (RM): ")
-                total_commission = 0.1 * float(hotel_price)
-                file.write(f"\n{hotel} | {hotel_id} | {hotel_price} | {total_commission}")
+                Net_commission = 0.1 * float(hotel_price)
+                file.write(f"\n{hotel_id} | {hotel} | {hotel_price} | {Net_commission}")
         except IOError as e:
             print(f"Error adding hotel: {e}")
     else:
@@ -30,14 +31,14 @@ def read_file_hotel(filename_hotel):
     if os.path.exists(filename_hotel):
         try:
             with open(filename_hotel, "r") as file:
-                header = f"\n{'ID':40}{'Hotel Name':>20}{'Price/Night':>20}{'Total Commission':>20}"
+                header = f"\n{'ID':40}{'Hotel Name':>20}{'Rate/Night':>20}{'Net Commission':>20}"
                 print(header)
                 print("=" * 100)
                 for line in file.readlines():
                     line = line.strip()
                     if line and "|" in line:
-                        hotel, hotel_id, hotel_price, total_commission = line.split("|")
-                        print(f"{hotel_id.strip():40}{hotel.strip():>20}{hotel_price.strip():>20}{total_commission.strip():>20}")
+                        hotel_id, hotel, hotel_price, Net_commission = line.split("|")
+                        print(f"{hotel_id.strip():40}{hotel.strip():>20}{hotel_price.strip():>20}{Net_commission.strip():>20}")
         except IOError as e:
             print(f"Error reading file: {e}")
     else:
@@ -50,15 +51,19 @@ def edit_file_hotel(filename_hotel):
             with open(filename_hotel, "r+") as file:
                 lines = file.readlines()
                 file.seek(0)
+                header = f"\n{'ID':40}{'Hotel Name':>20}{'Rate/Night':>20}{'Net Commission':>20}"
+                print(header)
+                print("=" * 100)
 
                 found = False
                 for line_index, line in enumerate(lines):
                     line = line.strip()
                     if "|" in line:
-                        hotel, hotel_id, hotel_price, total = line.split("|")
-                        print(f"{hotel.strip():40}{hotel_id.strip():>20}{hotel_price.strip():>20}{total.strip():>20}")
+                        #header print once
+                        hotel_id, hotel , hotel_price, Net = line.split("|")
+                        print(f"{hotel_id.strip():40}{hotel.strip():>20}{hotel_price.strip():>20}{Net.strip():>20}")
 
-                search_hotel = input("Enter the hotel to edit or delete: ").strip().lower()
+                search_hotel = input("\nEnter the ID to edit or delete: ").strip().lower()
                 edited = False
                 for line_index, line in enumerate(lines):
                     if "|" in line:
@@ -124,25 +129,25 @@ def edit_file_hotel(filename_hotel):
         print(f"File '{filename_hotel}' does not exist.")
 
 #--------FOR TOUR -----------------
-def create_file_tour(filename_tour):
-    if not os.path.exists(filename_tour):
-        try:
-            with open(filename_tour, "x") as file:
-                file.write("tour | tour_id | tour_Price | Total Commission\n")
-        except IOError as e:
-            print(f"Error creating file: {e}")
-    else:
-        print(f"File '{filename_tour}' already exists.")
+# def create_file_tour(filename_tour):
+#     if not os.path.exists(filename_tour):
+#         try:
+#             with open(filename_tour, "x") as file:
+#                 file.write("tour | tour_id | tour_Price | Net Commission\n")
+#         except IOError as e:
+#             print(f"Error creating file: {e}")
+#     else:
+#         print(f"File '{filename_tour}' already exists.")
 
 def add_tour(filename_tour):
     if os.path.exists(filename_tour):
         try:
             with open(filename_tour, "a") as file:
-                tour = input("Enter the tour name: ")
-                tour_id = input("Enter the tour id: ")
-                tour_price = input("Enter the tour price/night (RM): ")
-                total_commission = 0.1 * float(tour_price)
-                file.write(f"\n{tour} | {tour_id} | {tour_price} | {total_commission}")
+                tour_id = datetime.now().strftime("%Y%m%d%H%M%S%f")
+                tour = input("Enter the tour agency: ")
+                tour_price = input("Enter the tour rate/day (RM): ")
+                Net_commission = 0.1 * float(tour_price)
+                file.write(f"\n{tour_id} | {tour} | {tour_price} | {Net_commission}")
         except IOError as e:
             print(f"Error adding tour: {e}")
     else:
@@ -153,14 +158,14 @@ def read_file_tour(filename_tour):
         try:
             with open(filename_tour, "r") as file:
                 # Print the header once
-                header = f"{'Tour Guide':40}{'ID':20}{'Price/Day':20}{'Total Commission':20}" 
+                header = f"\n{'ID':40}{'Tour Agency':>20}{'Rate/Day':>20}{'Net Commission':>20}" 
                 print(header)
-                print("=" * 80)
+                print("=" * 100)
                 for line in file.readlines():
                     line = line.strip()
                     if line and "|" in line:
-                        tour, tour_id, tour_price, total_commission = line.split("|")
-                        print(f"{tour.strip():40}{tour_id.strip():>20}{tour_price.strip():>20}{total_commission.strip():>20}")
+                        tour_id, tour, tour_price, Net_commission = line.split("|")
+                        print(f"{tour_id.strip():40}{tour.strip():>20}{tour_price.strip():>20}{Net_commission.strip():>20}")
                         
         except IOError as e:
             print(f"Error reading file: {e}")
@@ -176,13 +181,18 @@ def edit_file_tour(filename_tour):
                 file.seek(0)
 
                 found = False
+                  # Print the header once
+                header = f"\n{'ID':40}{'Tour Guide':>20}{'Rate/Day':>20}{'Net Commission':>20}" 
+                print(header)
+                print("=" * 100)
                 for line_index, line in enumerate(lines):
                     line = line.strip()
                     if "|" in line:
-                        tour, tour_id, tour_price, total = line.split("|")
-                        print(f"{tour.strip():40}{tour_id.strip():>20}{tour_price.strip():>20}{total.strip():>20}")
+                       
+                        tour_id, tour, tour_price, Net = line.split("|")
+                        print(f"{tour_id.strip():40}{tour.strip():>20}{tour_price.strip():>20}{Net.strip():>20}")
 
-                search_tour = input("Enter the tour to edit or delete: ").strip().lower()
+                search_tour = input("Enter the ID to edit or delete: ").strip().lower()
                 edited = False
                 for line_index, line in enumerate(lines):
                     if "|" in line:
@@ -249,22 +259,20 @@ def edit_file_tour(filename_tour):
 
 def main():
     while True:
-       
-        print("1. Open Hotel file")
-        print("2. Open Tour-Guide file")
-        print("3. Exit")
-        choice = input("Enter your choice: ")
+        print("\nMain Menu:")
+        print("1. Manage Hotel             3. Exit*")
+        print("2. Manage Tour-Guide")
+        choice = input("\nEnter your choice:\n\U0001F449  ")
 
         if choice == "1":
             filename_hotel = "hotel.txt"
             while True:
                 if os.path.exists(filename_hotel):
                     print("\nOperations:")
-                    print("1. Add hotel")
-                    print("2. List all hotels")
-                    print("3. Edit file")
-                    print("4. Back to main menu")
-                    sub_choice = input("Enter your choice \U0001F449  ")
+                    print("1. Add hotel             3. Edit file ")
+                    print("2. List all hotels       4. Back to main menu")
+    
+                    sub_choice = input("\nEnter your choice:\n\U0001F449  ")
 
                     if sub_choice == "1":
                         add_hotel(filename_hotel)
@@ -286,11 +294,9 @@ def main():
 
                 if os.path.exists(filename_tour):
                     print("\nOperations:")
-                    print("1. Add tour-guide name")
-                    print("2. List all tour guides")
-                    print("3. Edit file")
-                    print("4. Back to main menu")
-                    sub_choice = input("Enter your choice \U0001F449  ")
+                    print("1. Add tour agency            3. Edit file")
+                    print("2. List all tour agencies     4. Back to main menu")
+                    sub_choice = input("\nEnter your choice:\n\U0001F449  ")
                     
 
                     if sub_choice == "1":
