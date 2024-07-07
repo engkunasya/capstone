@@ -1,4 +1,4 @@
-Integration of Hotel and Travel Agencies Management System.
+Hotel and Travel Agencies Integration Systems
 
 Team: Nasyakhairie, Aisyah, Shafiq
 
