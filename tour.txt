@@ -1,0 +1,3 @@
+Tour | ID | Price/Day | Total Commission
+
+Barakah Agency | 2 | 150 | 15.0
