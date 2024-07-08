@@ -17,7 +17,7 @@ def add_hotel(filename_hotel):
     if os.path.exists(filename_hotel):
         try:
             with open(filename_hotel, "a") as file:
-                hotel_id = datetime.now().strftime("%Y%m%d%H%M%S%f") #generate time-based-id
+                hotel_id = "H" + datetime.now().strftime("%Y%m%d%H%M%S%f") #generate time-based-id
                 hotel = input("Enter the hotel name: ")
                 hotel_price = input("Enter the hotel_price/night (RM): ")
                 Net_commission = 0.1 * float(hotel_price)
@@ -74,7 +74,7 @@ def edit_file_hotel(filename_hotel):
                             print("2. Edit hotel_id")
                             print("3. Edit hotel_price")
                             print("4. Delete hotel")
-                            print("5. Exit")
+                            print("5. Exit\n")
                             choice = input("Enter your choice: ")
                             if choice == "1":
                                 new_hotel = input("Enter the new hotel: ").strip()
@@ -99,7 +99,7 @@ def edit_file_hotel(filename_hotel):
                                 except ValueError:
                                     print("Invalid input. hotel_Price must be a number.")
                             elif choice == "4":
-                                confirmation = input(f"Are you sure you want to delete '{hotel}'? (y/n): ").strip().lower()
+                                confirmation = input(f"\nAre you sure you want to delete '{hotel}'? (y/n): ").strip().lower()
                                 if confirmation == "y":
                                     del lines[line_index]
                                     edited = True
@@ -143,7 +143,7 @@ def add_tour(filename_tour):
     if os.path.exists(filename_tour):
         try:
             with open(filename_tour, "a") as file:
-                tour_id = datetime.now().strftime("%Y%m%d%H%M%S%f")
+                tour_id = "T" + datetime.now().strftime("%Y%m%d%H%M%S%f")
                 tour = input("Enter the tour agency: ")
                 tour_price = input("Enter the tour rate/day (RM): ")
                 Net_commission = 0.1 * float(tour_price)
@@ -260,8 +260,8 @@ def edit_file_tour(filename_tour):
 def main():
     while True:
         print("\nMain Menu:")
-        print("1. Manage Hotel             3. Exit*")
-        print("2. Manage Tour-Guide")
+        print("🏨   1. Manage Hotel            3. *Exit")
+        print("🤠   2. Manage Tour-Guide")
         choice = input("\nEnter your choice:\n\U0001F449  ")
 
         if choice == "1":
@@ -270,7 +270,7 @@ def main():
                 if os.path.exists(filename_hotel):
                     print("\nOperations:")
                     print("1. Add hotel             3. Edit file ")
-                    print("2. List all hotels       4. Back to main menu")
+                    print("2. Read all hotels       4. Back to main menu")
     
                     sub_choice = input("\nEnter your choice:\n\U0001F449  ")
 
@@ -295,7 +295,7 @@ def main():
                 if os.path.exists(filename_tour):
                     print("\nOperations:")
                     print("1. Add tour agency            3. Edit file")
-                    print("2. List all tour agencies     4. Back to main menu")
+                    print("2. Read all tour agencies     4. Back to main menu")
                     sub_choice = input("\nEnter your choice:\n\U0001F449  ")
                     
 
