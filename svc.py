@@ -3,15 +3,7 @@ from datetime import datetime
 
 
 #===== FOR HOTEL =====
-# def create_file_hotel(filename_hotel):
-#     if not os.path.exists(filename_hotel):
-#         try:
-#             with open(filename_hotel, "x") as file:
-#                 file.write("hotel | hotel_id | hotel_Price | Net Commission\n")
-#         except IOError as e:
-#             print(f"Error creating file: {e}")
-#     else:
-#         print(f"File '{filename_hotel}' already exists.")
+
 
 def add_hotel(filename_hotel):
     if os.path.exists(filename_hotel):
@@ -31,14 +23,14 @@ def read_file_hotel(filename_hotel):
     if os.path.exists(filename_hotel):
         try:
             with open(filename_hotel, "r") as file:
-                header = f"\n{'ID':40}{'Hotel Name':>20}{'Rate/Night':>20}{'Net Commission':>20}"
+                header = f"\n{'ID':40}{'Hotel Name':>20}"
                 print(header)
                 print("=" * 100)
                 for line in file.readlines():
                     line = line.strip()
                     if line and "|" in line:
                         hotel_id, hotel, hotel_price, Net_commission = line.split("|")
-                        print(f"{hotel_id.strip():40}{hotel.strip():>20}{hotel_price.strip():>20}{Net_commission.strip():>20}")
+                        print(f"{hotel_id.strip():40}{hotel.strip():>20}")
         except IOError as e:
             print(f"Error reading file: {e}")
     else:
@@ -129,15 +121,7 @@ def edit_file_hotel(filename_hotel):
         print(f"File '{filename_hotel}' does not exist.")
 
 #--------FOR TOUR -----------------
-# def create_file_tour(filename_tour):
-#     if not os.path.exists(filename_tour):
-#         try:
-#             with open(filename_tour, "x") as file:
-#                 file.write("tour | tour_id | tour_Price | Net Commission\n")
-#         except IOError as e:
-#             print(f"Error creating file: {e}")
-#     else:
-#         print(f"File '{filename_tour}' already exists.")
+
 
 def add_tour(filename_tour):
     if os.path.exists(filename_tour):
@@ -312,26 +296,7 @@ def main():
                 else:
                     print(f"File '{filename_tour}' does not exist.")
                     break
-        #     filename_hotel = input("Enter the filename_hotel to create: ")
-        #     create_file(filename_hotel)
-        #     while True:
-        #         print("\nOperations:")
-        #         print("1. Add hotel")
-        #         print("2. Read file")
-        #         print("3. Edit file")
-        #         print("4. Back to main menu")
-        #         sub_choice = input("Enter your choice: ")
-
-        #         if sub_choice == "1":
-        #             add_hotel(filename_hotel)
-        #         elif sub_choice == "2":
-        #             read_file(filename_hotel)
-        #         elif sub_choice == "3":
-        #             edit_file(filename_hotel)
-        #         elif sub_choice == "4":
-        #             break
-        #         else:
-        #             print("Invalid choice. Try again.")
+ 
         
         
             
