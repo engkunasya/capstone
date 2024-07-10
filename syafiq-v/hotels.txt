@@ -1,0 +1,52 @@
+
+
+H006 | Seaview Hotel | 393.24 | 39.32
+H007 | Historic Hotel | 167.11 | 16.71
+H008 | Island Resort | 602.99 | 60.3
+H009 | Springtime Hotel | 405.87 | 40.59
+H010 | Premier Hotel | 378.98 | 37.9
+H011 | Peaceful Retreat | 515.94 | 51.59
+H012 | Countryside Inn | 408.36 | 40.84
+H013 | The Heritage | 624.21 | 62.42
+H014 | Green Valley Resort | 414.22 | 41.42
+H015 | Forest Lodge | 550.24 | 55.02
+H016 | Grand Palace | 442.11 | 44.21
+H017 | Royal Garden | 294.74 | 29.47
+H018 | Beachfront Hotel | 332.42 | 33.24
+H019 | Forest Lodge | 326.99 | 32.7
+H020 | Historic Hotel | 605.72 | 60.57
+H021 | Summer Breeze Hotel | 510.06 | 51.01
+H022 | Lakeside Inn | 375.09 | 37.51
+H023 | Royal Garden | 397.0 | 39.7
+H024 | Mountain Retreat | 438.52 | 43.85
+H025 | Luxury Suites | 612.17 | 61.22
+H026 | Premier Hotel | 640.37 | 64.04
+H027 | Metropolitan Hotel | 517.54 | 51.75
+H028 | Countryside Inn | 271.04 | 27.1
+H029 | Boutique Hotel | 262.7 | 26.27
+H030 | Lakeside Inn | 314.38 | 31.44
+H031 | Oceanview Hotel | 689.98 | 69.0
+H032 | Forest Lodge | 183.61 | 18.36
+H033 | Parkside Inn | 197.35 | 19.73
+H034 | Lakeside Inn | 401.92 | 40.19
+H035 | Parkside Inn | 616.17 | 61.62
+H036 | Desert Oasis | 111.47 | 11.15
+H037 | Urban Oasis | 478.79 | 47.88
+H038 | Grand Palace | 368.83 | 36.88
+H039 | Beachfront Hotel | 579.47 | 57.95
+H040 | Mountain Retreat | 310.9 | 31.09
+H041 | Majestic Resort | 382.61 | 38.26
+H042 | Countryside Inn | 228.77 | 22.88
+H043 | Downtown Hotel | 524.22 | 52.42
+H044 | Comfort Stay | 416.14 | 41.61
+H045 | Royal Plaza | 536.24 | 53.62
+H046 | Green Valley Resort | 104.54 | 10.45
+H047 | Island Resort | 188.35 | 18.84
+H048 | Winter Wonderland | 316.11 | 31.61
+H049 | Paradise Resort | 295.91 | 29.59
+H050 | Comfort Stay | 475.49 | 47.55
+H051 | Springtime Hotel | 507.49 | 50.75
+H052 | Vineyard Resort | 466.59 | 46.66
+H053 | Paradise Resort | 378.84 | 37.88
+H054 | Riverside Hotel | 181.88 | 18.19
+H055 | Downtown Hotel | 477.43 | 47.74

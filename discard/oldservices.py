@@ -35,6 +35,7 @@ def read_file_hotel(filename_hotel):
                 print(header)
                 print("=" * 100)
                 for line in file.readlines():
+                    print (file.readlines())
                     line = line.strip()
                     if line and "|" in line:
                         hotel_id, hotel, hotel_price, Net_commission = line.split("|")
