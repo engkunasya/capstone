@@ -13,6 +13,7 @@ car_brands = [
     "Mazda", "BMW", "Mercedes-Benz", "Volkswagen", "Ford"
 ]
 
+
 def generate_license_plate():
     letters = ''.join(random.choices('ABCDEFGHIJKLMNOPQRSTUVWXYZ', k=3))
     numbers = ''.join(random.choices('0123456789', k=3))
@@ -32,8 +33,11 @@ def generate_license_plate():
 
 # Function to generate customer data
 def generate_customers(num_bookings):
+    def generate_id(index, prefix='ID'):
+        return f"{prefix}{index:03d}"
     bookings = []
     for _ in range(num_bookings):
+        id = generate_id(_)
         custname = fake.name()
         custphone = fake.random_int(min=60100000000, max=60199999999)
         brand = random.choice(car_brands)
@@ -49,6 +53,7 @@ def generate_customers(num_bookings):
         rental_fee = rental_rate * (end_date - start_date).days
 
         booking = {
+            "ID": id,
             "Customer": custname,
             "Customer Phone Number": custphone,
             "Brand": brand,
@@ -73,7 +78,7 @@ bookings = generate_customers(num_bookings)
 
 # Save customer data to a text file with header
 # header = f"\n{'ID':40}{'Hotel Name':>20}{'Rate/Night':>20}{'Net Commission':>20}"
-header = f"\n{'Customer':25} | {'Phone Number':>21} | {'Brand':>15} | {'Plate Number':>12} | {'Seats':>5} | {'Rental Rate':>12} | {'Driver':>25} | {'Driver Phone Number':>20} | {'Start Date'} | {'End Date'} | {'Rental Fee (RM)':>15}\n"
+header = f"\n{'ID':5} | {'Customer':>25} | {'Phone Number':>21} | {'Brand':>15} | {'Plate Number':>12} | {'Seats':>5} | {'Rental Rate':>12} | {'Driver':>25} | {'Driver Phone Number':>20} | {'Start Date'} | {'End Date'} | {'Rental Fee (RM)':>15}\n"
 divider = f"{'=' * 190}\n"
 
 filename = 'booking.txt'
@@ -82,6 +87,6 @@ with open(filename, 'w') as file:
     file.write(divider)
     
     for booking in bookings:
-        file.write(f"{booking['Customer']:25} | {booking['Customer Phone Number']:>21} | {booking['Brand']:>15} | {booking['Plate Number']:>12} | {booking['Seats']:>5} | {booking['Rental Rate']:>12.2f} | {booking['Driver']:>25} | {booking['Driver Phone Number']:>20} | {booking['Start Date']} | {booking['End Date']} | {booking['Rental Fee (RM)']:>15.2f}\n")
+        file.write(f"{booking['ID']:5} | {booking['Customer']:25} | {booking['Customer Phone Number']:>21} | {booking['Brand']:>15} | {booking['Plate Number']:>12} | {booking['Seats']:>5} | {booking['Rental Rate']:>12.2f} | {booking['Driver']:>25} | {booking['Driver Phone Number']:>20} | {booking['Start Date']} | {booking['End Date']} | {booking['Rental Fee (RM)']:>15.2f}\n")
 
 print(f"Customer data has been saved to {filename} with the header.")
