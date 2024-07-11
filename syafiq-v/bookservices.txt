@@ -1,16 +1,11 @@
-H011  |                  LALALAND |     641.18 |      64.12
-
-H004  |            Coastal Resort |     494.42 |      49.44
-
-H004  |            Coastal Resort |     494.42 |      49.44
-
-H009  |               HIDDEN GERM |     333.54 |      33.35
-
-H005  |                 ANDALUSIA |     645.79 |      64.58
-
-H001  |           Oceanview Hotel |     611.61 |      61.16
-
-H011  |           The Grand Hotel |     114.22 |      11.42
-
-H011  |                  LALALAND |     641.18 |      64.12
-
+ID001   | H000  |                Sunset Inn |     490.63 |      49.06
+ | 0 | 3 | 0.0
+ID001   | H000  |                Sunset Inn |     490.63 |      49.06
+ | 0 | 3 | 0.0
+ID001   | H000  |                Sunset Inn |     490.63 |      49.06
+ | 0 | 3 | 0.0
+ID001   | H011  |           The Grand Hotel |     114.22 |      11.42
+ | 1 | 3 | 3.0
+ID001   | H011  |           The Grand Hotel |     114.22 |      11.42
+ | 1 | 3 | 3.0
+ID001   | ['H011  ', '           The Grand Hotel ', '     114.22 ', '      11.42'] |       11.42 | 3 | 34.26

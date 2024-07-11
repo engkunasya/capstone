@@ -15,7 +15,7 @@ def add_customer(filename_booking):
                     line = line.strip()
                     if "|" in line:
                         cust_id, cust, phone, car_brand, plate, seats, rental_rate, driver, driver_no, start_date, ticket_date, today, duration, status, rental_fee = line.split("|")
-                        # print(f"{cust_id.strip():40}{duration.strip():>20}{status.strip():>20}")
+                    # print("second debug",duration)
                      
 
                 search_cust = input("\nEnter the ID of customer: ").strip().upper()
@@ -33,10 +33,13 @@ def add_customer(filename_booking):
                             selected_cust = line
                             break
 
-                if selected_cust and selected_cust == "Valid":
-                   print(f"Customer is valid with name {selected_cust[1]}")
-                   cust_index = selected_cust[0]
-                   return cust_index
+                if selected_cust:
+                   print(f"Customer is valid with name {selected_cust.strip().split("|")[1]}")
+                   cust_index = selected_cust.strip().split("|")[0]
+                   duration = int(selected_cust.strip().split("|")[12])
+                   
+
+                   return cust_index, duration
                 else:
                     print(f"Customer with ID '{search_cust}' not found or expired.")
 
@@ -70,7 +73,7 @@ def read_file_hotel(filename_hotel):
     else:
         print(f"File '{filename_hotel}' does not exist.")
 
-def add_booking_hotel(filename_hotel, filename_chooseaddon, chosed_cust):
+def add_booking_hotel(filename_hotel, filename_chooseaddon, chosed_cust, duration):
     if os.path.exists(filename_hotel):
         try:
             with open(filename_hotel, "r") as file:
@@ -86,20 +89,45 @@ def add_booking_hotel(filename_hotel, filename_chooseaddon, chosed_cust):
                         hotel_id, hotel, hotel_price, net_commission = line.split("|")
                         print(f"{hotel_id.strip():40}{hotel.strip():>20}{hotel_price.strip():>20}{net_commission.strip():>20}")
 
+                
                 search_hotel = input("\nEnter the ID to select: ").strip().upper()
                 selected_hotel = None
+                # for line in lines:
+                #     if "|" in line:
+                #         parts = line.strip().split("|")
+                #         cust_id = parts[0].strip()
+                #         status = parts[13].strip
+                        
+                #         cust_duration = parts[12].strip()
+                #         cust_status = parts[13].strip()
 
                 for line in lines:
                     if "|" in line:
                         parts = line.strip().split("|")
                         hotel_id = parts[0].strip()
+                        
+
                         if hotel_id.upper() == search_hotel:
-                            selected_hotel = line
+                            selected_hotel = line.strip().split("|")
+                           
+                            print("selectedhotel:",selected_hotel)
+
+                            com_per_night = selected_hotel[3]
+                            print("com final debug", com_per_night)
                             break
 
                 if selected_hotel:
                     with open(filename_chooseaddon, "a") as choose_file:
-                        choose_file.write(chosed_cust + selected_hotel + "\n")
+                        print("com_per_night",com_per_night)
+                        print("duration", duration)
+                        
+                        tol_commission = int(duration) * float(com_per_night)
+                        print("total comm", tol_commission)
+                        tol_commission_str = str(tol_commission) 
+                        duration_str = str(duration)
+                        print("total commission",tol_commission)
+                        book_hoter_str = f"{chosed_cust}  | {selected_hotel} | {com_per_night} | {duration_str} | {tol_commission}\n"
+                        choose_file.write( book_hoter_str)
                     print(f"Hotel with ID '{search_hotel}' added to {chosed_cust}.")
                 else:
                     print(f"Hotel with ID '{search_hotel}' not found.")
@@ -157,7 +185,7 @@ def add_booking_tour(filename_tour, filename_chooseaddon, chosed_cust):
 
                 if selected_tour:
                     with open(filename_chooseaddon, "a") as choose_file:
-                        choose_file.write(chosed_cust, selected_tour + "\n")
+                        choose_file.write(chosed_cust + selected_tour + "\n")
                     print(f"Tour with ID '{search_tour}' added to Customer: {chosed_cust}.")
                 else:
                     print(f"Tour with ID '{search_tour}' not found.")
@@ -172,7 +200,7 @@ def add_booking_tour(filename_tour, filename_chooseaddon, chosed_cust):
 
 def main():
     filename_booking = "booking.txt"
-    chosed_cust = add_customer(filename_booking)
+    chosed_cust, duration = add_customer(filename_booking)
     
     while chosed_cust:
             print("\nMain Menu:")
@@ -186,13 +214,13 @@ def main():
                 filename_chooseaddon = "bookservices.txt"
                 # read_file_hotel(filename_hotel)
 
-                add_booking_hotel(filename_hotel,filename_chooseaddon, chosed_cust)
+                add_booking_hotel(filename_hotel,filename_chooseaddon, chosed_cust, duration)
             
             elif choice == "2":
                 filename_tour = "tours.txt"
                 filename_chooseaddon = "bookservices.txt"
 
-                add_booking_tour(filename_tour,filename_chooseaddon, chosed_cust)
+                add_booking_tour(filename_tour,filename_chooseaddon, chosed_cust, duration)
 
             elif choice == "3":
                 print("\nExiting...")
