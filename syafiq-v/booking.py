@@ -47,10 +47,17 @@ def generate_customers(num_bookings):
         drivername = fake.name()
         driverphone = fake.random_int(min=60100000000, max=60199999999)
 
-        start_date =  start_date = fake.date_between(start_date='-30d', end_date='today')
-        end_date = start_date + timedelta(days=random.randint(1, 14))
+        start_date =  fake.date_between(start_date='-7d', end_date='today')
+        ticket_date = start_date + timedelta(days=random.randint(1, 14))
+        current_date = fake.date_between(start_date='-1d', end_date='today')
+        duration = random.randint(1,5)
 
-        rental_fee = rental_rate * (end_date - start_date).days
+        rental_fee = rental_rate * (duration)
+        if ticket_date > current_date:
+            status = "Valid"
+
+        else:
+            status = "Expired"
 
         booking = {
             "ID": id,
@@ -63,7 +70,10 @@ def generate_customers(num_bookings):
             "Driver": drivername,
             "Driver Phone Number": driverphone,
             "Start Date": start_date,
-            "End Date": end_date,
+            "Ticket Date": ticket_date,
+            "Duration": duration,
+            "Current Date": current_date,
+            "Status": status,
             "Rental Fee (RM)": rental_fee
         }
 
@@ -78,8 +88,8 @@ bookings = generate_customers(num_bookings)
 
 # Save customer data to a text file with header
 # header = f"\n{'ID':40}{'Hotel Name':>20}{'Rate/Night':>20}{'Net Commission':>20}"
-header = f"\n{'ID':5} | {'Customer':>25} | {'Phone Number':>21} | {'Brand':>15} | {'Plate Number':>12} | {'Seats':>5} | {'Rental Rate':>12} | {'Driver':>25} | {'Driver Phone Number':>20} | {'Start Date'} | {'End Date'} | {'Rental Fee (RM)':>15}\n"
-divider = f"{'=' * 190}\n"
+header = f"\n{'ID':5} | {'Customer':>25} | {'Phone Number':>21} | {'Brand':>15} | {'Plate Number':>12} | {'Seats':>5} | {'Rental Rate':>12} | {'Driver':>25} | {'Driver Phone Number':>20} | {'Start Date'} | {'TicketDate'} | {'Date Today'} | {'Duration':>10} | {'Status':>10} | {'Rental Fee (RM)':>15}\n"
+divider = f"{'=' * len(header)}\n"
 
 filename = 'booking.txt'
 with open(filename, 'w') as file:
@@ -87,6 +97,6 @@ with open(filename, 'w') as file:
     file.write(divider)
     
     for booking in bookings:
-        file.write(f"{booking['ID']:5} | {booking['Customer']:25} | {booking['Customer Phone Number']:>21} | {booking['Brand']:>15} | {booking['Plate Number']:>12} | {booking['Seats']:>5} | {booking['Rental Rate']:>12.2f} | {booking['Driver']:>25} | {booking['Driver Phone Number']:>20} | {booking['Start Date']} | {booking['End Date']} | {booking['Rental Fee (RM)']:>15.2f}\n")
+        file.write(f"{booking['ID']:5} | {booking['Customer']:25} | {booking['Customer Phone Number']:>21} | {booking['Brand']:>15} | {booking['Plate Number']:>12} | {booking['Seats']:>5} | {booking['Rental Rate']:>12.2f} | {booking['Driver']:>25} | {booking['Driver Phone Number']:>20} | {booking['Start Date']} | {booking['Ticket Date']} | {booking['Current Date']} | {booking['Duration']:>10} | {booking['Status']:>10} | {booking['Rental Fee (RM)']:>15.2f}\n")
 
 print(f"Customer data has been saved to {filename} with the header.")

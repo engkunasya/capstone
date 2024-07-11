@@ -1,0 +1,16 @@
+H011  |                  LALALAND |     641.18 |      64.12
+
+H004  |            Coastal Resort |     494.42 |      49.44
+
+H004  |            Coastal Resort |     494.42 |      49.44
+
+H009  |               HIDDEN GERM |     333.54 |      33.35
+
+H005  |                 ANDALUSIA |     645.79 |      64.58
+
+H001  |           Oceanview Hotel |     611.61 |      61.16
+
+H011  |           The Grand Hotel |     114.22 |      11.42
+
+H011  |                  LALALAND |     641.18 |      64.12
+

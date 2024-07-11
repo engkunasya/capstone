@@ -1,0 +1,14 @@
+ID    |                 tour Name |   Rate/Day | Commission
+============================================================
+T000  |                 WALK WALK |     286.74 |      28.67
+T001  |                   EXPEDIA |     647.94 |      64.79
+T002  |                HAPPY TOUR |     434.35 |      43.44
+T003  |                  JOM HIKE |     198.63 |      19.86
+T004  |                  GO GO GO |     164.83 |      16.48
+T005  |                 ANDALUSIA |     645.79 |      64.58
+T006  |              PIGEON GUIDE |     454.28 |      45.43
+T007  |                 JALAN SAT |     153.15 |      15.32
+T008  |              EXPRESS CAMP |     544.05 |      54.41
+T009  |               HIDDEN GERM |     333.54 |      33.35
+T010  |              SECRET WORLD |     126.52 |      12.65
+T011  |                  LALALAND |     641.18 |      64.12

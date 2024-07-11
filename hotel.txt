@@ -1,6 +1,0 @@
-
-H001 | Hilton Resort | 240 | 24.0
-H002 | Concorde Residence | 450 | 45.0
-H003 | M Hotel | 120 | 12.0
-H004 | Le Meridien | 670 | 67.0
-H005 |  Casablanca Resort  | 530 |  47.0

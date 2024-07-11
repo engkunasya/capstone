@@ -1,0 +1,10 @@
+CUSTOMER ID | HOTEL ID | HOTEL RATE | TOUR ID | TOUR RATE | DURATION | TOTAL COMMISSION
+
+H053 | Paradise Resort | 378.84 | 37.88
+
+H051 | Springtime Hotel | 507.49 | 50.75
+
+H022 | Lakeside Inn | 375.09 | 37.51
+
+H015 | Forest Lodge | 550.24 | 55.02
+

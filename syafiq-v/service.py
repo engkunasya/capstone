@@ -20,8 +20,8 @@ def add_hotel(filename_hotel):
                 hotel_id = "H" + datetime.now().strftime("%Y%m%d%H%M%S%f") #generate time-based-id
                 hotel = input("Enter the hotel name: ")
                 hotel_price = input("Enter the hotel_price/night (RM): ")
-                Net_commission = 0.1 * float(hotel_price)
-                file.write(f"\n{hotel_id} | {hotel} | {hotel_price} | {Net_commission}")
+                commission = 0.1 * float(hotel_price)
+                file.write(f"\n{hotel_id} | {hotel} | {hotel_price} | {commission}")
         except IOError as e:
             print(f"Error adding hotel: {e}")
     else:
@@ -144,13 +144,14 @@ def add_tour(filename_tour):
     if os.path.exists(filename_tour):
         try:
             with open(filename_tour, "a") as file:
-                tour_id = "T" + datetime.now().strftime("%Y%m%d%H%M%S%f")
-                tour = input("Enter the tour agency: ")
-                tour_price = input("Enter the tour rate/day (RM): ")
+                tour_id = "T" + datetime.now().strftime("%Y%m%d%H%M%S%f") #generate time-based-id
+                tour = input("Enter the tour name: ")
+                tour_price = input("Enter the tour_price/day (RM): ")
                 Net_commission = 0.1 * float(tour_price)
                 file.write(f"\n{tour_id} | {tour} | {tour_price} | {Net_commission}")
         except IOError as e:
-            print(f"Error adding tour: {e}")
+            print(f"Error adding tour guide: {e}")
+    
     else:
         print(f"File '{filename_tour}' does not exist.")
 

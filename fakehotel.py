@@ -3,23 +3,13 @@ import random
 def generate_hotel_id(index):
     return f"H{index:03d}"
 
-def generate_hotel_name():
+def generate_hotel_name(n):
     hotel_names = [
         "Sunset Inn", "Oceanview Hotel", "Mountain Retreat", "Urban Stay", 
         "Coastal Resort", "Riverside Hotel", "Grand Palace", "Royal Plaza", 
-        "The Elegant Lodge", "City Center Hotel", "Luxury Suites", "Paradise Resort",
-        "Seaside Escape", "Highland Hotel", "Forest Lodge", "Harbor Hotel",
-        "Skyline Inn", "Desert Oasis", "Historic Hotel", "Comfort Stay",
-        "Green Valley Resort", "Beachfront Hotel", "Lakeside Inn", "The Heritage",
-        "Premier Hotel", "Winter Wonderland", "Springtime Hotel", "Autumn Lodge",
-        "Summer Breeze Hotel", "The Cosmopolitan", "Urban Oasis", "Majestic Resort",
-        "Downtown Hotel", "Countryside Inn", "Metropolitan Hotel", "Royal Garden",
-        "Peaceful Retreat", "Serene Hotel", "Charming Inn", "Boutique Hotel",
-        "Modern Hotel", "Classic Inn", "Seaview Hotel", "Island Resort",
-        "Hilltop Hotel", "Grove Hotel", "Parkside Inn", "Vineyard Resort",
-        "Mystic Hotel", "The Grand Hotel"
+        "The Elegant Lodge", "City Center Hotel", "Luxury Suites", "The Grand Hotel"
     ]
-    return random.choice(hotel_names)
+    return hotel_names[n]
 
 def generate_rate_per_night():
     return round(random.uniform(100, 700), 2)
@@ -30,18 +20,22 @@ def generate_commission(rate):
 hotels = []
 
 # Starting index after H005
-start_index = 6
+start_index = 0
 
-for i in range(start_index, start_index + 50):
+for i in range(start_index, start_index + 12):
     hotel_id = generate_hotel_id(i)
-    hotel_name = generate_hotel_name()
+    hotel_name = generate_hotel_name(i)
     rate_per_night = generate_rate_per_night()
     commission = generate_commission(rate_per_night)
     
-    hotels.append(f"{hotel_id} | {hotel_name} | {rate_per_night} | {commission}")
+    hotels.append(f"{hotel_id:5} | {hotel_name:>25} | {rate_per_night:>10} | {commission:>10}\n")
 
 with open('hotels.txt', 'w') as file:
+    header = f"{"ID":5} | {"Hotel Name":>25} | {"Rate/Night":>10} | {"Commission":>10}\n"
+    border = f"{"=" * len(header)}\n"
+    file.write(header)
+    file.write(border)
     for hotel in hotels:
-        file.write(hotel + '\n')
+        file.write(hotel)
 
 print("Hotel list saved to hotels.txt")
