@@ -1,0 +1,11 @@
+BookingID|Car|Customer|Driver|StartDay|EndDay
+ID001|VFD3454|Amalina Hamat|Syuhada Ida|1/7/2024|14/7/2024
+ID002|MDJ9374|Peter Parker|Pak Majid|19/6/2024|25/6/2024
+ID003|KLS4489|Harry Poter|Voldemort Husin|18/7/2024|25/7/2024
+ID004|JCM9373|Kim Tae-hyung|Ali Abu|14/7/2024|18/7/2024
+ID005|DSV2938|Benjamin Avril|Imam Jamaal|2/7/2024|6/7/2024
+ID006|PLN2344|Tobey Avril|Abd Sabri|19/9/2024|25/9/2024
+ID007|CSP9283|Sabrina Carpenter|Yusri Munir|30/6/2024|5/7/2024
+ID008|WDS7834|Melville Calantha|Asyful Syahmi|17/8/2024|25/8/2024
+ID009|MLK9365|Ashley Darlene|Shafiq Eiman|29/10/2024|7/11/2024
+ID010|ALM8013|Hamnet Michele|Daniel Irfan|18/9/2024|22/9/2024
